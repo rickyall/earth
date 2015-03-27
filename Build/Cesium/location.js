@@ -1,9 +1,9 @@
   var viewer = new Cesium.Viewer('cesiumContainer',{
 
     imageryProvider : new Cesium.OpenStreetMapImageryProvider({
-    url : '//a.tile.openstreetmap.org/'
-})
-
+    url : 'http://a.tile.openstreetmap.org/'
+}),
+    baseLayerPicker:false
 
   });
 
@@ -16,11 +16,11 @@
     //北京
     var china = viewer.entities.add({
         name : '中国',
-        position: Cesium.Cartesian3.fromDegrees(116.46,39.92),
+        position: Cesium.Cartesian3.fromDegrees(108.95,34.3),
         ellipse : {
           semiMinorAxis : 300000,
           semiMajorAxis : 300000,
-          material : Cesium.Color.YELLOW.withAlpha(0.5)
+          material: "../Build/Cesium/Assets/image/china.jpg"
         }
     });
   
@@ -51,11 +51,19 @@
     
  var  america= viewer.entities.add({
         name : '美国',
-        position: Cesium.Cartesian3.fromDegrees(-77.02,38.53),
+        position: Cesium.Cartesian3.fromDegrees(-97.02,41.51),
         ellipse : {
-          semiMinorAxis : 300000,
-          semiMajorAxis : 300000,
-          material : Cesium.Color.RED.withAlpha(0.5)
+          semiMinorAxis : 600000,
+          semiMajorAxis : 600000,
+          material : new Cesium.Material({
+           fabric:{
+
+            type:"Color",
+            uniforms:{
+              color: new Cesium.Color.RED
+            }
+           }
+          })
         }
     });
   
@@ -63,7 +71,7 @@
       <img\
       width="50%"\
       style="float:left; margin: 0 1em 1em 0;"\
-      src="../Build/Cesium/Assets/image/america.jpg"/>\
+      src="../Build/Cesium/Assets/image/weather/rain.gif"/>\
     <p>\
       　上周五（2月6日）公布的数据显示，美国1月非农就业人数增加25.7万人，超过预期增加23.5万人。尽管美国1月份失业率5.7%，高于预期的5.6%，但劳动参与率从62.7%升至62.9%。\
     </p>\
@@ -120,10 +128,10 @@ var india = viewer.entities.add({
 //澳大利亚
 var australia = viewer.entities.add({
         name : '澳大利亚',
-        position: Cesium.Cartesian3.fromDegrees(149.07,-35.17),
+        position: Cesium.Cartesian3.fromDegrees(136.5,-29.15),
         ellipse : {
-          semiMinorAxis : 300000,
-          semiMajorAxis : 300000,
+          semiMinorAxis : 200000,
+          semiMajorAxis : 200000,
           material : Cesium.Color.BLUE.withAlpha(0.5)
         }
     });
